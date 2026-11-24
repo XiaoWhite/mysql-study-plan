@@ -2,18 +2,18 @@
 
 ### 用户与商品
 
-| users.id | name | email |
-| --- | --- | --- |
-| 1 | 林悦 | lin@example.com |
-| 2 | 周远 | zhou@example.com |
-| 3 | 许宁 | xu@example.com |
+| users.id | name | email            |
+| -------- | ---- | ---------------- |
+| 1        | 林悦 | lin@example.com  |
+| 2        | 周远 | zhou@example.com |
+| 3        | 许宁 | xu@example.com   |
 
-| products.id | sku | name | price | inventory.available |
-| --- | --- | --- | ---: | ---: |
-| 201 | KEY-CAP | 键帽 | 49.00 | 7 |
-| 202 | MOUSE-PAD | 鼠标垫 | 79.00 | 1 |
-| 203 | USB-HUB | 扩展坞 | 129.00 | 4 |
-| 204 | CABLE | 数据线 | 39.00 | 10 |
+| products.id | sku       | name   |  price | inventory.available |
+| ----------- | --------- | ------ | -----: | ------------------: |
+| 201         | KEY-CAP   | 键帽   |  49.00 |                   7 |
+| 202         | MOUSE-PAD | 鼠标垫 |  79.00 |                   1 |
+| 203         | USB-HUB   | 扩展坞 | 129.00 |                   4 |
+| 204         | CABLE     | 数据线 |  39.00 |                  10 |
 
 `inventory.product_id` 同时是主键和指向 `products.id` 的外键。
 
@@ -21,20 +21,20 @@
 
 时间均为 `2026-03-01`，下表只展示时分。`NULL` 表示尚未付款。
 
-| orders.id | user_id | status | total_amount | created_at | paid_at |
-| ---: | ---: | --- | ---: | --- | --- |
-| 101 | 1 | PAID | 128.00 | 09:00 | 09:02 |
-| 102 | 2 | PAID | 49.00 | 09:15 | 09:17 |
-| 103 | 2 | PENDING | 129.00 | 10:00 | `NULL` |
-| 104 | 1 | PAID | 79.00 | 10:00 | 10:05 |
+| orders.id | user_id | status  | total_amount | created_at | paid_at |
+| --------: | ------: | ------- | -----------: | ---------- | ------- |
+|       101 |       1 | PAID    |       128.00 | 09:00      | 09:02   |
+|       102 |       2 | PAID    |        49.00 | 09:15      | 09:17   |
+|       103 |       2 | PENDING |       129.00 | 10:00      | `NULL`  |
+|       104 |       1 | PAID    |        79.00 | 10:00      | 10:05   |
 
 | order_items.order_id | line_no | product_id | quantity | unit_price |
-| ---: | ---: | ---: | ---: | ---: |
-| 101 | 1 | 201 | 1 | 49.00 |
-| 101 | 2 | 202 | 1 | 79.00 |
-| 102 | 1 | 201 | 1 | 49.00 |
-| 103 | 1 | 203 | 1 | 129.00 |
-| 104 | 1 | 202 | 1 | 79.00 |
+| -------------------: | ------: | ---------: | -------: | ---------: |
+|                  101 |       1 |        201 |        1 |      49.00 |
+|                  101 |       2 |        202 |        1 |      79.00 |
+|                  102 |       1 |        201 |        1 |      49.00 |
+|                  103 |       1 |        203 |        1 |     129.00 |
+|                  104 |       1 |        202 |        1 |      79.00 |
 
 <details>
 <summary>查看建表与样例 SQL</summary>

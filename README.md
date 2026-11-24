@@ -22,6 +22,11 @@ npm run preview
 
 构建输出到 `dist/`。预览地址默认是 `http://localhost:4173/`。
 
+## 代码检查与格式化
+
+- `npm run lint` 检查 JavaScript 和 Vue 文件，`npm run lint:fix` 自动修复可修复的问题。
+- `npm run format:check` 检查格式，`npm run format` 写入格式化结果。课程 Markdown 的代码示例在格式化时保留原样。
+
 ## 静态部署
 
 把 `dist/` 中的 `index.html` 和 `assets/` 上传到静态服务器的站点根目录或指定子目录。子目录的入口使用带结尾斜杠的 URL，例如 `https://example.com/mysql/`。完整讲义链接示例为 `https://example.com/mysql/#/lesson/relational-tables`。

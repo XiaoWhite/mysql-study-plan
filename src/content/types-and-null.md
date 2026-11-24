@@ -16,9 +16,9 @@ WHERE paid_at IS NULL
 ORDER BY id;
 ```
 
-| id | total_amount | unpaid |
-| ---: | ---: | ---: |
-| 103 | 129.00 | 1 |
+|  id | total_amount | unpaid |
+| --: | -----------: | -----: |
+| 103 |       129.00 |      1 |
 
 MySQL 在这里用 `1` 表示条件为真。若业务有取消、退款等状态，`paid_at IS NULL` 仍只回答“是否有付款时间”，需要额外根据业务状态筛选。
 

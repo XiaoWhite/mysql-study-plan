@@ -1,11 +1,11 @@
 <script setup>
-import { lessonLink } from './course.js'
+import { lessonLink } from './course.js';
 
 defineProps({
   lessons: { type: Array, required: true },
   completed: { type: Set, required: true },
   currentId: { type: String, default: '' },
-})
+});
 </script>
 
 <template>

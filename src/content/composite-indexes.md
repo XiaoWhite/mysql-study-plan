@@ -20,8 +20,8 @@ ORDER BY created_at DESC, id DESC
 LIMIT 2;
 ```
 
-| id | created_at |
-| ---: | --- |
+|  id | created_at          |
+| --: | ------------------- |
 | 104 | 2026-03-01 10:00:00 |
 | 101 | 2026-03-01 09:00:00 |
 

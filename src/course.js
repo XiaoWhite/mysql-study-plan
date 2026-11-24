@@ -63,8 +63,8 @@ export const weeks = [
   ...week,
   number: index + 1,
   lessons: week.lessons.map(([id, title]) => ({ id, title, week: index + 1 })),
-}))
+}));
 
-export const lessons = weeks.flatMap((week) => week.lessons)
-export const lessonById = new Map(lessons.map((lesson) => [lesson.id, lesson]))
-export const lessonLink = (id) => `#/lesson/${id}`
+export const lessons = weeks.flatMap((week) => week.lessons);
+export const lessonById = new Map(lessons.map((lesson) => [lesson.id, lesson]));
+export const lessonLink = (id) => `#/lesson/${id}`;
