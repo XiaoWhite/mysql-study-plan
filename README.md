@@ -35,6 +35,17 @@ Vite 构建使用相对资源路径，课程路由放在 URL 的 hash 中。服�
 
 手动标记的完成状态和最近阅读记录保存在当前浏览器的 `localStorage`，按站点来源和部署路径区分。浏览器禁止存储时仍可打开所有课程，当前打开页面内的进度和最近阅读可用，刷新后从空进度开始。
 
+## 项目结构
+
+- `src/views/`：路由页面。
+- `src/components/`：可复用的 Vue 组件。
+- `src/router/`：Vue Router 配置。
+- `src/composables/`：组合式状态和逻辑。
+- `src/data/`：课程元数据。
+- `src/services/`：Markdown 加载和渲染服务。
+- `src/content/`：课程 Markdown 讲义。
+- `src/styles/` 和 `src/assets/`：公共样式和静态资源。
+
 ## 修改课程
 
-`src/course.js` 定义课程顺序、标题和稳定 ID。每节课的 Markdown 文件位于 `src/content/`，文件名与 ID 一致。`src/content/case-study.md` 包含共享的表结构和样例数据。
+`src/data/course.js` 定义课程顺序、标题和稳定 ID。每节课的 Markdown 文件位于 `src/content/`，文件名与 ID 一致。`src/content/case-study.md` 包含共享的表结构和样例数据。

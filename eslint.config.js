@@ -20,7 +20,7 @@ export default defineConfig([
     languageOptions: { globals: globals.nodeBuiltin },
   },
   {
-    files: ['src/App.vue'],
+    files: ['src/views/LessonPage.vue'],
     rules: {
       // These bindings render bundled course Markdown.
       'vue/no-v-html': ['warn', { ignorePattern: '^(caseStudyHtml|lessonHtml)$' }],

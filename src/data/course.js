@@ -1,3 +1,4 @@
+// 定义课程原始数据，并根据数组顺序补充周次和结构化课时信息。
 export const weeks = [
   {
     title: '表与数据模型',
@@ -65,6 +66,6 @@ export const weeks = [
   lessons: week.lessons.map(([id, title]) => ({ id, title, week: index + 1 })),
 }));
 
+// 扁平课时列表用于前后翻页和总体进度计算，Map 用于按路由 ID 快速查找。
 export const lessons = weeks.flatMap((week) => week.lessons);
 export const lessonById = new Map(lessons.map((lesson) => [lesson.id, lesson]));
-export const lessonLink = (id) => `#/lesson/${id}`;

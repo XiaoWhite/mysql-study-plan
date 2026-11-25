@@ -2,9 +2,9 @@
 
 ## 项目结构
 
-本仓库是面向前端开发者的 MySQL 8.4 LTS 与 InnoDB 中文课程，使用 Vue 3 和 Vite 构建为静态站点。`index.html` 和 `src/main.js` 是入口，`src/App.vue` 和 `src/LessonList.vue` 负责页面布局和课程导航，公共样式位于 `src/style.css`。Geist 字体位于 `src/assets/`，许可证位于 `public/assets/`。
+本仓库是面向前端开发者的 MySQL 8.4 LTS 与 InnoDB 中文课程，使用 Vue 3、Vue Router 和 Vite 构建为静态站点。`index.html` 和 `src/main.js` 是入口，`src/App.vue` 负责公共布局。页面位于 `src/views/`，通用组件位于 `src/components/`，路由、组合式函数、课程数据和服务分别位于 `src/router/`、`src/composables/`、`src/data/` 和 `src/services/`。公共样式位于 `src/styles/main.css`，Geist 字体位于 `src/assets/`，许可证位于 `public/assets/`。
 
-`src/course.js` 定义课程顺序、标题和课时 ID，`src/markdown.js` 渲染 `src/content/` 中的讲义。更新 SQL 示例时，沿用 `src/content/case-study.md` 中的表结构和样例数据。
+`src/data/course.js` 定义课程顺序、标题和课时 ID，`src/services/markdown.js` 渲染 `src/content/` 中的讲义。更新 SQL 示例时，沿用 `src/content/case-study.md` 中的表结构和样例数据。
 
 ## 开发命令
 
@@ -18,7 +18,7 @@
 
 ## 编码风格与命名
 
-使用两个空格缩进。JavaScript 字符串使用单引号，语句末尾使用分号。Vue 组件文件名使用大驼峰命名，例如 `LessonList.vue`。讲义使用中文，Markdown 文件名用小写字母和连字符，并与 `src/course.js` 中对应的 ID 一致。课程链接和学习进度依赖现有 ID，修改标题时请保留 ID。Prettier 会保留讲义代码块内的格式。
+使用两个空格缩进。JavaScript 字符串使用单引号，语句末尾使用分号。Vue 组件文件名使用大驼峰命名，例如 `LessonList.vue`。讲义使用中文，Markdown 文件名用小写字母和连字符，并与 `src/data/course.js` 中对应的 ID 一致。课程链接和学习进度依赖现有 ID，修改标题时请保留 ID。Prettier 会保留讲义代码块内的格式。
 
 ## 验证改动
 
