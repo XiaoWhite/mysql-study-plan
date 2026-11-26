@@ -1042,11 +1042,33 @@ progress::-moz-progress-bar {
   color: #e8f2ff;
 }
 .code-sample figcaption {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   padding: 7px 15px;
   border-bottom: 1px solid #3b4d65;
   background: #1c2b42;
   color: var(--accent-light);
   font: 12px/1.5 var(--mono);
+}
+.copy-sql-status {
+  margin-inline-start: auto;
+  color: #e8f2ff;
+}
+.copy-sql {
+  padding: 4px 8px;
+  border: 1px solid #617692;
+  border-radius: 5px;
+  background: transparent;
+  color: #e8f2ff;
+  white-space: nowrap;
+}
+.copy-sql:hover {
+  background: #30445f;
+}
+.copy-sql:focus-visible {
+  outline-color: var(--accent-light);
+  outline-offset: 2px;
 }
 .code-sample pre {
   overflow: auto;

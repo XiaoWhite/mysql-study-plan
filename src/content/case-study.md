@@ -39,8 +39,11 @@
 <details>
 <summary>查看建表与样例 SQL</summary>
 
+在 SQL 客户端选中一个空的练习数据库，用「执行全部」从 `CREATE TABLE users` 开始运行下面整段 SQL。建表时先创建被引用的父表，例如 `orders` 的外键引用 `users.id`，因此要先创建 `users`。插入数据时也要先插入被引用的行，例如先插入用户，再插入该用户的订单。
+
 ```sql
--- 在空的练习库中执行。TIMESTAMP 未用于本例，DATETIME 均按 UTC 写入。
+-- 选中空的练习数据库后，从 CREATE TABLE users 开始执行整段脚本。
+-- 本例的 DATETIME 值均按 UTC 写入。
 CREATE TABLE users (
   id BIGINT UNSIGNED PRIMARY KEY,
   name VARCHAR(100) NOT NULL,
@@ -95,5 +98,7 @@ INSERT INTO orders (id, user_id, status, total_amount, created_at, paid_at) VALU
 INSERT INTO order_items VALUES (101, 1, 201, 1, 49), (101, 2, 202, 1, 79),
   (102, 1, 201, 1, 49), (103, 1, 203, 1, 129), (104, 1, 202, 1, 79);
 ```
+
+如果创建 `orders` 时收到 `[1824] Failed to open the referenced table 'users'`，在同一个 SQL 编辑器中执行 `SELECT DATABASE()` 确认当前数据库，再用 `SHOW TABLES LIKE 'users'` 检查父表是否存在。如果第一条建表语句也报了错，先处理那条错误。如果练习库里已有部分表，可以另选一个空的练习库，从头运行整段脚本。
 
 </details>

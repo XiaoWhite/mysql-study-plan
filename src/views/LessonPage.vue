@@ -20,6 +20,43 @@ const lessonFailed = ref(false);
 const lessonLoading = ref(false);
 const coursesRoute = { name: 'home', hash: '#courses' };
 
+function copyWithSelection(sql, button) {
+  const field = document.createElement('textarea');
+  field.value = sql;
+  field.readOnly = true;
+  field.style.position = 'fixed';
+  field.style.opacity = '0';
+  document.body.append(field);
+  try {
+    field.focus({ preventScroll: true });
+    field.select();
+    return document.execCommand('copy');
+  } finally {
+    field.remove();
+    button.focus({ preventScroll: true });
+  }
+}
+
+async function copySql(event) {
+  const button = event.target instanceof Element ? event.target.closest('.copy-sql') : null;
+  const sample = button?.closest('.code-sample');
+  if (!sample) return;
+
+  const sql = sample.querySelector('pre > code').textContent;
+  const status = sample.querySelector('.copy-sql-status');
+  status.textContent = '';
+  try {
+    if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(sql);
+      status.textContent = '已复制';
+    } else {
+      status.textContent = copyWithSelection(sql, button) ? '已复制' : '复制失败';
+    }
+  } catch {
+    status.textContent = '复制失败';
+  }
+}
+
 // 课时路由变化时重置页面状态、记录阅读位置，并异步加载对应讲义。
 watch(
   current,
@@ -83,7 +120,7 @@ watch(
       </nav>
     </aside>
 
-    <article class="lesson-page">
+    <article class="lesson-page" @click="copySql">
       <header class="lesson-header">
         <nav class="breadcrumb" aria-label="面包屑">
           <RouterLink :to="coursesRoute">课程路线</RouterLink>
