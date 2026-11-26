@@ -29,6 +29,16 @@ npm run preview
 
 ## 静态部署
 
+### GitHub Pages
+
+1. 在 GitHub 仓库的 **Settings → Pages** 中，将 **Build and deployment → Source** 设为 **GitHub Actions**。
+2. 将包含 `.github/workflows/pages.yml` 的改动推送到 `main`。如果工作流已在 `main`，可以在 **Actions → Deploy to GitHub Pages** 中选择 **Run workflow** 立即部署。
+3. 部署成功后，在 **Settings → Pages** 打开站点。此仓库的默认地址见 [MySQL 学习手册](https://xiaowhite.github.io/mysql-study-plan/)。
+
+之后每次推送到 `main` 都会重新构建并发布。可以直接分享[课时链接](https://xiaowhite.github.io/mysql-study-plan/#/lesson/joins)。
+
+### 其他静态服务器
+
 把 `dist/` 中的 `index.html` 和 `assets/` 上传到静态服务器的站点根目录或指定子目录。子目录的入口使用带结尾斜杠的 URL，例如 `https://example.com/mysql/`。完整讲义链接示例为 `https://example.com/mysql/#/lesson/relational-tables`。
 
 Vite 构建使用相对资源路径，课程路由放在 URL 的 hash 中。服务器只需提供静态文件和目录入口，无需为每节课配置路由，也无需运行 Node.js 或 MySQL。
